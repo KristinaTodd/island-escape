@@ -25,7 +25,7 @@ namespace island_escape.Services
         // set current room to the exit room
         _game.CurrentRoom = _game.CurrentRoom.Exits[direction];
         // populate messages with room description
-        Messages.Add($"You Travel {direction}, and discover: ");
+        Messages.Add($"You travel {direction}, and discover: ");
         Look();
         EndRoom end = _game.CurrentRoom as EndRoom;
         if (end != null)
@@ -36,7 +36,7 @@ namespace island_escape.Services
         return true;
       }
       //no exit in that direction
-      Messages.Add("No Room in that direction");
+      Messages.Add("No path in that direction");
       Look();
       return true;
     }
@@ -61,21 +61,21 @@ namespace island_escape.Services
       Messages.Add(_game.CurrentRoom.Description);
       if (_game.CurrentRoom.Items.Count > 0)
       {
-        Messages.Add("There Are a few things in this room:");
+        Messages.Add("There are a few things within reach:");
         foreach (var item in _game.CurrentRoom.Items)
         {
           Messages.Add("     " + item.Name);
         }
       }
       string exits = string.Join(", ", _game.CurrentRoom.Exits.Keys);
-      Messages.Add("There are exits to the " + exits);
+      Messages.Add("There's a path to the " + exits);
 
       string lockedExits = "";
       foreach (var lockedRoom in _game.CurrentRoom.LockedExits.Values)
       {
         lockedExits += lockedRoom.Key;
       }
-      Messages.Add("There are locked exits to the " + lockedExits);
+      Messages.Add("There's a path to " + lockedExits + "but you must move a fallen tree.");
 
     }
 

@@ -23,11 +23,11 @@ namespace island_escape.Models
       {
         Exits.Add(LockedExits[item].Key, LockedExits[item].Value);
         LockedExits.Remove(item);
-        if (item.Name.ToLower() == "toilet paper")
+        if (item.Name.ToLower() == "machete")
         {
-          return "You hoist the precious paper in the air and a checkstand opens as if by magic";
+          return "You use the machete and slash anything in your way!";
         }
-        return "You have unlocked a room";
+        return "You have discovered a new path!";
       }
       return "No use for that here";
     }

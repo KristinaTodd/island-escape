@@ -27,7 +27,7 @@ namespace island_escape.Controllers
       foreach (char letter in Warning)
       {
         Console.Write(letter);
-        Thread.Sleep(750);
+        Thread.Sleep(75);
       }
 
       Print();
@@ -77,7 +77,11 @@ namespace island_escape.Controllers
     }
     public void Print()
     {
-
+      foreach (string message in _gs.Messages)
+      {
+        Console.WriteLine(message);
+      }
+      _gs.Messages.Clear();
     }
   }
 
