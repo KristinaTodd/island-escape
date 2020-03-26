@@ -1,0 +1,13 @@
+C:\source\codeworks\island-escape\obj\Debug\netcoreapp3.1\island-escape.csprojAssemblyReference.cache
+C:\source\codeworks\island-escape\obj\Debug\netcoreapp3.1\island-escape.csproj.CoreCompileInputs.cache
+C:\source\codeworks\island-escape\obj\Debug\netcoreapp3.1\island-escape.AssemblyInfoInputs.cache
+C:\source\codeworks\island-escape\obj\Debug\netcoreapp3.1\island-escape.AssemblyInfo.cs
+C:\source\codeworks\island-escape\bin\Debug\netcoreapp3.1\island-escape.exe
+C:\source\codeworks\island-escape\bin\Debug\netcoreapp3.1\island-escape.deps.json
+C:\source\codeworks\island-escape\bin\Debug\netcoreapp3.1\island-escape.runtimeconfig.json
+C:\source\codeworks\island-escape\bin\Debug\netcoreapp3.1\island-escape.runtimeconfig.dev.json
+C:\source\codeworks\island-escape\bin\Debug\netcoreapp3.1\island-escape.dll
+C:\source\codeworks\island-escape\bin\Debug\netcoreapp3.1\island-escape.pdb
+C:\source\codeworks\island-escape\obj\Debug\netcoreapp3.1\island-escape.dll
+C:\source\codeworks\island-escape\obj\Debug\netcoreapp3.1\island-escape.pdb
+C:\source\codeworks\island-escape\obj\Debug\netcoreapp3.1\island-escape.genruntimeconfig.cache
