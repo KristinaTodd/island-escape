@@ -43,7 +43,14 @@ namespace island_escape.Services
 
     public void Help()
     {
-      throw new System.NotImplementedException();
+      Messages.Add(@"
+      Your options are to:
+      look
+      take
+      go (north,south,east,west
+      inventory
+      use
+      ");
     }
 
     public void Inventory()
@@ -67,7 +74,7 @@ namespace island_escape.Services
           Messages.Add("     " + item.Name);
         }
       }
-      string exits = string.Join(", ", _game.CurrentRoom.Exits.Keys);
+      string exits = string.Join(" - ", _game.CurrentRoom.Exits.Keys);
       Messages.Add("There's a path to the " + exits);
 
       string lockedExits = "";
@@ -75,7 +82,7 @@ namespace island_escape.Services
       {
         lockedExits += lockedRoom.Key;
       }
-      Messages.Add("There's a path to " + lockedExits + "but you must move a fallen tree.");
+      Messages.Add("There's a path to " + lockedExits + "but it's overgrown with plants and tree limbs. You need to move them out of your way.");
 
     }
 

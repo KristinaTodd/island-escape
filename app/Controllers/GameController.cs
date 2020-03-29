@@ -11,11 +11,15 @@ namespace island_escape.Controllers
     private bool _running { get; set; } = true;
     public void Run()
     {
+      Console.WriteLine("Hello, what is your name?");
+      _gs = new GameService(Console.ReadLine());
+      Console.Clear();
       Console.WriteLine(@"
   __  ____  __     __   __ _  ____    ____  ____   ___   __   ____  ____ 
  (  )/ ___)(  )   / _\ (  ( \(    \  (  __)/ ___) / __) / _\ (  _ \(  __)
   )( \___ \/ (_/\/    \/    / ) D (   ) _) \___ \( (__ /    \ ) __/ ) _) 
  (__)(____/\____/\_/\_/\_)__)(____/  (____)(____/ \___)\_/\_/(__)  (____)
+
       ");
       Console.WriteLine("Hello...Welcome to the Island...");
       Console.WriteLine("Are you resourceful enough to escape? (y/n)");
@@ -27,10 +31,8 @@ namespace island_escape.Controllers
       foreach (char letter in Warning)
       {
         Console.Write(letter);
-        Thread.Sleep(75);
+        Thread.Sleep(70);
       }
-
-      Print();
       while (_running)
       {
         GetUserInput();
@@ -67,6 +69,9 @@ namespace island_escape.Controllers
           break;
         case "use":
           _gs.Use(option);
+          break;
+        case "help":
+          _gs.Help();
           break;
         default:
           _gs.Messages.Add("Not a recognized command");

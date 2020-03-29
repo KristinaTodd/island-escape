@@ -20,13 +20,19 @@ namespace island_escape.Models
       Item rb = new Item("Row Boat", "This rowboat is pretty worn...Will it make it to the ship?");
       Item torch = new Item("Torch and Matches", "");
 
-      cliff.Exits.Add("east", cave);
       cliff.Exits.Add("west", field);
       field.Exits.Add("east", cliff);
       cave.Exits.Add("north", beach);
-      beach.Exits.Add("south", ship);
 
+      beach.AddLockedRoom(rb, "south", ship);
+      cliff.AddLockedRoom(machete, "east", cave);
 
+      field.Items.Add(machete);
+      field.Items.Add(torch);
+      cave.Items.Add(paddle);
+      beach.Items.Add(rb);
+
+      CurrentRoom = cliff;
 
     }
   }
