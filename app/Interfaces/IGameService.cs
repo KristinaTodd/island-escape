@@ -7,7 +7,6 @@ namespace island_escape.Interfaces
     //go, look, take, use, inventory, Rest, setup, help
     List<string> Messages { get; set; }
     void Reset();
-
     bool Go(string direction);
     void Look();
     void Take(string itemName);

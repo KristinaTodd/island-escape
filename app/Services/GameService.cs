@@ -45,11 +45,13 @@ namespace island_escape.Services
     {
       Messages.Add(@"
       Your options are to:
+      
       look
       take
-      go (north,south,east,west
+      go (north,south,east,west)
       inventory
       use
+
       ");
     }
 
@@ -68,21 +70,41 @@ namespace island_escape.Services
       Messages.Add(_game.CurrentRoom.Description);
       if (_game.CurrentRoom.Items.Count > 0)
       {
-        Messages.Add("There are a few things within reach:");
-        foreach (var item in _game.CurrentRoom.Items)
+        if (_game.CurrentRoom.Name.Equals("Dark Cave"))
         {
-          Messages.Add("     " + item.Name);
+          Messages.Add("You can't even see if there are any items in here.");
+        }
+        else
+        {
+          Messages.Add("There are a few things within reach:");
+          foreach (var item in _game.CurrentRoom.Items)
+          {
+            Messages.Add("     " + item.Name);
+          }
         }
       }
       string exits = string.Join(" - ", _game.CurrentRoom.Exits.Keys);
-      Messages.Add("There's a path to the " + exits);
-
       string lockedExits = "";
       foreach (var lockedRoom in _game.CurrentRoom.LockedExits.Values)
       {
         lockedExits += lockedRoom.Key;
       }
-      Messages.Add("There's a path to " + lockedExits + "but it's overgrown with plants and tree limbs. You need to move them out of your way.");
+      if (_game.CurrentRoom.Name.Equals("Cliffside"))
+      {
+        Messages.Add("There's a path to " + lockedExits + " but it's overgrown with plants and tree limbs. You need to move them out of your way.\n");
+      }
+      else if (_game.CurrentRoom.Name.Equals("Beach"))
+      {
+        Messages.Add("You can tell you need to paddle south to get to the ship...You might need to use this row boat..");
+      }
+      else if (_game.CurrentRoom.Name.Equals("Dark Cave"))
+      {
+        Messages.Add("There may be a path but it's too dark!.\n");
+      }
+      else
+      {
+        Messages.Add("There's a path to the " + exits + ". \n");
+      }
 
     }
 

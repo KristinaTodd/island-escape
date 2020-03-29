@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using island_escape.Interfaces;
+using island_escape.Services;
 
 namespace island_escape.Models
 {
@@ -25,9 +26,16 @@ namespace island_escape.Models
         LockedExits.Remove(item);
         if (item.Name.ToLower() == "machete")
         {
-          return "You use the machete and slash anything in your way!";
+          return "You use the machete and slash anything in your way! You can now see the path to the east.";
         }
-        return "You have discovered a new path!";
+        if (item.Name.ToLower() == "torch and matches")
+        {
+          return "You can now see around the cave! There's a wooden paddle over there in the corner! You also see an exit to the north.";
+        }
+        if (item.Name.ToLower() == "row boat")
+        {
+          return "You are now in the row boat..Which direction do you want to go?";
+        }
       }
       return "No use for that here";
     }

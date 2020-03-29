@@ -33,6 +33,7 @@ namespace island_escape.Controllers
         Console.Write(letter);
         Thread.Sleep(70);
       }
+      Thread.Sleep(500);
       while (_running)
       {
         GetUserInput();
@@ -41,7 +42,7 @@ namespace island_escape.Controllers
     }
     public void GetUserInput()
     {
-      Console.WriteLine("What would you like to do?");
+      Console.WriteLine("\nWhat would you like to do?\n");
       string input = Console.ReadLine().ToLower() + " ";
       string command = input.Substring(0, input.IndexOf(" "));
       string option = input.Substring(input.IndexOf(" ") + 1).Trim();
