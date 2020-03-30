@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using island_escape.Interfaces;
 using island_escape.Models;
+using island_escape.Controllers;
 
 namespace island_escape.Services
 {
@@ -84,6 +85,11 @@ namespace island_escape.Services
         }
       }
       string exits = string.Join(" - ", _game.CurrentRoom.Exits.Keys);
+
+      if (_game.CurrentRoom.Name.Equals("Cliffside"))
+      {
+        Messages.Add("There's a path to the " + exits + ". \n");
+      }
       string lockedExits = "";
       foreach (var lockedRoom in _game.CurrentRoom.LockedExits.Values)
       {
@@ -95,11 +101,15 @@ namespace island_escape.Services
       }
       else if (_game.CurrentRoom.Name.Equals("Beach"))
       {
-        Messages.Add("You can tell you need to paddle south to get to the ship...You might need to use this row boat..");
+        Messages.Add("You can tell the ship is to the south..but how do you get there? You might need to use this row boat..");
       }
       else if (_game.CurrentRoom.Name.Equals("Dark Cave"))
       {
         Messages.Add("There may be a path but it's too dark!.\n");
+      }
+      else if (_game.CurrentRoom.Name.Equals("row boat"))
+      {
+        Messages.Add("How are you going to get to the ship? It's so far away and these waves are pushing your boat all over.");
       }
       else
       {
@@ -134,7 +144,29 @@ namespace island_escape.Services
       if (found != null)
       {
         Messages.Add(_game.CurrentRoom.Use(found));
-        return;
+
+        if (found.Name == "Row Boat")
+        {
+          _game.CurrentRoom = _game.CurrentRoom.Exits["west"];
+          var key = "wooden paddle";
+          var paddle = _game.CurrentPlayer.Inventory.Find(i => i.Name.ToLower() == key);
+          if (paddle == null)
+          {
+            _game.CurrentRoom = _game.CurrentRoom.Exits["west"];
+            Messages.Add(_game.CurrentRoom.Description);
+            EndRoom end = _game.CurrentRoom as EndRoom;
+            if (end != null)
+            {
+              Messages.Add(end.Narrative);
+              //FIXME cannot figure out how to change the win condition to false if you don't have the paddle -- games shows it's lost but doesn't actually end
+              //EndRoom.Win = false;
+            }
+          }
+          else
+          {
+            Messages.Add(_game.CurrentRoom.Description);
+          }
+        }
       }
       // check if item is in room
       Messages.Add("You don't have that Item");

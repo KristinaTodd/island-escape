@@ -57,18 +57,21 @@ namespace island_escape.Controllers
           _gs.Reset();
           break;
         case "look":
+          _gs.Messages.Clear();
           _gs.Look();
           break;
         case "inventory":
           _gs.Inventory();
           break;
         case "go":
+          _gs.Messages.Clear();
           _running = _gs.Go(option);
           break;
         case "take":
           _gs.Take(option);
           break;
         case "use":
+          _gs.Messages.Clear();
           _gs.Use(option);
           break;
         case "help":
@@ -87,7 +90,6 @@ namespace island_escape.Controllers
       {
         Console.WriteLine(message);
       }
-      _gs.Messages.Clear();
     }
   }
 

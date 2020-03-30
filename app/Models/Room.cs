@@ -12,6 +12,8 @@ namespace island_escape.Models
     public Dictionary<string, IRoom> Exits { get; set; }
     public Dictionary<IItem, KeyValuePair<string, IRoom>> LockedExits { get; set; }
 
+    public IPlayer CurrentPlayer { get; set; }
+    public IRoom CurrentRoom { get; set; }
     public void AddLockedRoom(IItem key, string direction, IRoom room)
     {
       var lockedRoom = new KeyValuePair<string, IRoom>(direction, room);
@@ -34,7 +36,14 @@ namespace island_escape.Models
         }
         if (item.Name.ToLower() == "row boat")
         {
-          return "You are now in the row boat..Which direction do you want to go?";
+          // _game.CurrentRoom = _game.CurrentRoom.Exits["west"];
+          // var key = "wooden paddle";
+          // var paddle = _game.CurrentPlayer.Inventory.Find(i => i.Name.ToLower() == key);
+          // if (paddle == null)
+          // {
+          //   _game.CurrentRoom = _game.CurrentRoom.Exits["west"];
+          // };
+          return "You are now in the row boat. This rowboat is pretty worn...Will it make it to the ship?";
         }
       }
       return "No use for that here";
