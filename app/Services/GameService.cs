@@ -158,8 +158,6 @@ namespace island_escape.Services
             if (end != null)
             {
               Messages.Add(end.Narrative);
-              //FIXME cannot figure out how to change the win condition to false if you don't have the paddle -- games shows it's lost but doesn't actually end
-              //EndRoom.Win = false;
             }
           }
           else
@@ -169,7 +167,8 @@ namespace island_escape.Services
         }
       }
       // check if item is in room
-      Messages.Add("You don't have that Item");
+      else
+      { Messages.Add("You don't have that Item"); }
     }
   }
 }

@@ -36,14 +36,11 @@ namespace island_escape.Models
         }
         if (item.Name.ToLower() == "row boat")
         {
-          // _game.CurrentRoom = _game.CurrentRoom.Exits["west"];
-          // var key = "wooden paddle";
-          // var paddle = _game.CurrentPlayer.Inventory.Find(i => i.Name.ToLower() == key);
-          // if (paddle == null)
-          // {
-          //   _game.CurrentRoom = _game.CurrentRoom.Exits["west"];
-          // };
           return "You are now in the row boat. This rowboat is pretty worn...Will it make it to the ship?";
+        }
+        if (item.Name.ToLower() == "wooden paddle")
+        {
+          return "You are now able to row south towards the ship!";
         }
       }
       return "No use for that here";

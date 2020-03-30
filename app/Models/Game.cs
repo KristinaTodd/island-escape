@@ -15,7 +15,7 @@ namespace island_escape.Models
       Room beach = new Room("Beach", "You made it to the beach. Off the shore, too far to swim, you see a ship!");
       EndRoom ocean = new EndRoom("Ocean", "You turned your row boat the wrong direction..", false, "You can't get your small boat turned the back and you start to drift further away....Looks like you will be lost at sea forever.");
       EndRoom ship = new EndRoom("Ship", "You're rowing toward the ship!", true, "You climb aboard the ship and set sail! You made it off the island alive!");
-      Room rb = new Room("Row Boat", "This rowboat is pretty worn...Will it make it to the ship?");
+      Room rb = new Room("Row Boat", "This rowboat is pretty worn...Will it make it to the ship? You need to paddle south to reach the ship!");
 
       Item machete = new Item("Machete", "You've stumbled upon a rusty but sturdy machete. I bet this will come in handy in the future.");
       Item paddle = new Item("Wooden Paddle", "You found a wooden paddle!");
